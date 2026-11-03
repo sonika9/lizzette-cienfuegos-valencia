@@ -27,4 +27,8 @@ class CrearProducto extends Component
     {
         $this->form->calcularTipoDeCambio($tipoCambio);
     }
+    public function cancelar()
+    {
+        return redirect('/productos');
+    }
 }

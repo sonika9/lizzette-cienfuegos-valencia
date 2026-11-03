@@ -50,7 +50,7 @@ class ProductoForm extends Form
             'precio_usd' => 'required|numeric|gt:0',
             'precio_mxn' => 'required|numeric|gt:0',
             'imagen' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
-            'stock' => 'required|integer|gt:0',
+            'stock' => 'required|integer|gte:0',
             'fecha_vigencia' => 'required|date',
             'activo' => 'required|boolean',
             'categoria' => 'required|in:alimentos_bebidas,deportes,salud,ropa'
@@ -74,7 +74,7 @@ class ProductoForm extends Form
             'precio_usd' => 'required|numeric|gt:0',
             'precio_mxn' => 'required|numeric|gt:0',
             'imagen' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
-            'stock' => 'required|integer|gt:0',
+            'stock' => 'required|integer|gte:0',
             'fecha_vigencia' => 'required|date',
             'activo' => 'required|boolean',
             'categoria' => 'required|in:alimentos_bebidas,deportes,salud,ropa'
@@ -105,10 +105,14 @@ class ProductoForm extends Form
             'descripcion_corta.required' => 'La descripción corta es requerida.',
             'descripcion_larga.required' => 'La descripción larga es requerida.',
             'precio_usd.required' => 'El precio en USD es requerido.',
+            'precio_usd.gt' => 'El precio en USD debe ser mayor a cero.',
             'precio_mxn.required' => 'El precio en MXN es requerido.',
+            'precio_mxn.gt' => 'El precio en MXN debe ser mayor a cero.',
             'imagen.mimes' => 'La imagen debe ser un archivo JPG, JPEG, PNG o WEBP.',
             'imagen.max' => 'La imagen no debe exceder los 2MB.',
             'stock.required' => 'El stock es requerido.',
+            'stock.gte' => 'El stock debe ser mayor o igual a cero.',
+            'stock.integer' => 'El stock debe ser un número entero.',
             'fecha_vigencia.required' => 'La fecha de vigencia es requerida.',
             'activo.required' => 'El campo activo es requerido.',
             'categoria.required' => 'La categoría es requerida.'

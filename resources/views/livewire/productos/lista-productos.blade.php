@@ -30,7 +30,7 @@
         <div class="grid grid-cols-1 gap-4 md:grid-cols-1">
             <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
                 <div class="flex items-center justify-between border-b border-gray-200 px-5 py-4">
-                    <h2 class="font-semibold text-gray-900">Users</h2>
+                    <h2 class="font-semibold text-gray-900">Productos</h2>
 
                     <span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
                         {{ $productos->count() }} resultados
@@ -142,7 +142,7 @@
         >
             <section
                 class="w-full max-w-md rounded-2xl border border-gray-200
-           bg-white p-6 shadow-2xl"
+           bg-white p-6 shadow-2xl max-h-[90vh] overflow-y-auto"
                 @click.stop
             >
                 <template x-if="producto">

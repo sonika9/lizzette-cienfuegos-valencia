@@ -12,7 +12,14 @@
                     <h2>Crear Producto</h2>
                     @include('livewire.productos.producto-form')
                     <div class="flex justify-end mt-4">
-                    <button class="ml-3 font-medium text-sm flex bg-blue-100 hover:bg-blue-200 rounded-md px-3 py-1.5" type="submit">Crear Producto</button>
+                        <button
+                            class="ml-3 font-medium text-sm flex bg-blue-100 hover:bg-blue-200 rounded-md px-3 py-1.5"
+                            type="submit">Crear Producto
+                        </button>
+                        <button
+                            class="ml-3 font-medium text-sm flex bg-blue-100 hover:bg-blue-200 rounded-md px-3 py-1.5"
+                            type="button" wire:click="cancelar">Cancelar
+                        </button>
                     </div>
                 </form>
             </div>

@@ -20,7 +20,7 @@ class ListaProductos extends Component
                 $query->where('nombre', 'like', '%' . $this->busqueda . '%')
                     ->orWhere('sku', 'like', '%' . $this->busqueda . '%');
             })
-            ->paginate(4);
+            ->paginate(10);
         return view('livewire.productos.lista-productos', [
             'productos' => $productos,
         ]);

@@ -33,4 +33,8 @@ class EditarProducto extends Component
     {
         $this->form->calcularTipoDeCambio($tipoCambio);
     }
+    public function cancelar()
+    {
+        return redirect('/productos');
+    }
 }

@@ -4,9 +4,11 @@ namespace App\Livewire\Productos;
 
 use Livewire\Component;
 use App\Models\Producto;
+use Livewire\WithPagination;
 
 class ListaProductos extends Component
 {
+    use withPagination;
     public string $busqueda = '';
     public ?int $idProducto;
     public ?int $idProductoStatus;
@@ -18,7 +20,7 @@ class ListaProductos extends Component
                 $query->where('nombre', 'like', '%' . $this->busqueda . '%')
                     ->orWhere('sku', 'like', '%' . $this->busqueda . '%');
             })
-            ->paginate(10);
+            ->paginate(4);
         return view('livewire.productos.lista-productos', [
             'productos' => $productos,
         ]);

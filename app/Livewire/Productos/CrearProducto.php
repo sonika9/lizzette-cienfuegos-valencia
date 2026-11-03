@@ -3,6 +3,7 @@
 namespace App\Livewire\Productos;
 
 use App\Livewire\Forms\ProductoForm;
+use App\Servicios\ITipoCambio;
 use \Livewire\WithFileUploads;
 use Livewire\Component;
 
@@ -20,5 +21,10 @@ class CrearProducto extends Component
     {
         $this->form->store();
         return $this->redirect('/productos');
+    }
+
+    public function updatedFormPrecioMxn(ITipoCambio $tipoCambio)
+    {
+        $this->form->calcularTipoDeCambio($tipoCambio);
     }
 }

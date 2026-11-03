@@ -3,6 +3,7 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Producto;
+use App\Servicios\ITipoCambio;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Form;
@@ -10,7 +11,7 @@ use Livewire\Form;
 class ProductoForm extends Form
 {
     public ?int $id = null;
-    public string $sku;
+    public ?string $sku = null;
     public string $nombre;
     public string $descripcion_corta;
     public string $descripcion_larga;
@@ -112,5 +113,10 @@ class ProductoForm extends Form
             'activo.required' => 'El campo activo es requerido.',
             'categoria.required' => 'La categoría es requerida.'
         ];
+    }
+
+    public function calcularTipoDeCambio(ITipoCambio $tipoCambio)
+    {
+        $this->precio_usd = round($this->precio_mxn / $tipoCambio->obtenerTipoCambio(), 2);
     }
 }

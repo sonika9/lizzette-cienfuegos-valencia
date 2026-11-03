@@ -50,7 +50,7 @@
                                     {{ $pedido->email }}
                                 </td>
                                 <td class="whitespace-nowrap px-5 py-4 text-gray-600">
-                                    {{ $pedido->total }}
+                                    ${{ number_format($pedido->total, 2, '.', ',') }} MXN
                                 </td>
                                 <td class="whitespace-nowrap px-5 py-4 text-gray-600">
                                     {{ $pedido->estatus }}

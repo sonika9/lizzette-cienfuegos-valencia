@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Pedido extends Model
 {
+    public $timestamps = false;
+    
     protected $fillable = ['folio', 'email', 'subtotal', 'impuestos', 'total', 'estatus', 'fecha'];
     public function detalles()
     {

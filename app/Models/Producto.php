@@ -21,6 +21,6 @@ class Producto extends Model
     ];
 
     protected $casts = [
-        'fecha_vigencia' => 'datetime',
+        'fecha_vigencia' => 'datetime:Y-m-d H:i:s',
     ];
 }

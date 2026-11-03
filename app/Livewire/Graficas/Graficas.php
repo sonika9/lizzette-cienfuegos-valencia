@@ -12,7 +12,8 @@ class Graficas extends Component
     public function render()
     {
         $ganancias = Pedido::query()
-            ->selectRaw('MONTH(created_at) as month, SUM(total) as total')
+            ->selectRaw('MONTH(fecha) as month, SUM(total) as total')
+            ->where('fecha', '>=', now()->subMonths(6))
             ->groupBy('month')
             ->orderBy('month')
             ->get()->toArray();
@@ -23,6 +24,7 @@ class Graficas extends Component
             ->join('pedido_detalles', 'productos.id', '=', 'pedido_detalles.producto_id')
             ->select('productos.nombre',
                 DB::raw('SUM(pedido_detalles.cantidad) as cantidad'))
+            ->where('pedido_detalles.created_at', '>=', now()->subMonths(6))
             ->groupBy('productos.nombre')
             ->orderByDesc('cantidad')
             ->limit(3)

@@ -7,7 +7,8 @@
                 Administrar lista de productos
             </p>
         </div>
-        <a href="{{ route('productos.crear') }}" class="ml-3 font-medium text-sm flex bg-blue-100 hover:bg-blue-200 rounded-md px-3 py-1.5">
+        <a href="{{ route('productos.crear') }}"
+           class="ml-3 font-medium text-sm flex bg-blue-100 hover:bg-blue-200 rounded-md px-3 py-1.5">
             + Agregar Producto
         </a>
     </div>
@@ -62,10 +63,10 @@
                                     {{ $producto->nombre }}
                                 </td>
                                 <td class="whitespace-nowrap px-5 py-4 text-gray-600">
-                                    {{ $producto->precio_usd }}
+                                    ${{ number_format($producto->precio_usd, 2, '.', ',') }}
                                 </td>
                                 <td class="whitespace-nowrap px-5 py-4 text-gray-600">
-                                    {{ $producto->precio_mxn }}
+                                    ${{ number_format($producto->precio_mxn, 2, '.', ',') }}
                                 </td>
                                 <td class="whitespace-nowrap px-5 py-4 text-gray-600">
                                     {{ $producto->stock }}
@@ -78,32 +79,33 @@
                                         type="button"
                                         title="Ver detalle"
                                         @click="$dispatch('open-producto-modal', {{ Illuminate\Support\Js::from($producto) }})"
-                                        class="ml-3 font-medium text-sm"
+                                        class="font-medium text-gray-700"
                                     >
-                                        <i class="fas fa-eye text-sm"></i>
+                                        <i class="fas fa-eye text-xs"></i>
                                     </button>
                                     <a
                                         href="{{ route('productos.editar', $producto->id) }}"
                                         title="Editar"
-                                        class="font-medium hover:underline"
+                                        class="font-medium hover:underline text-blue-700"
                                     >
-                                        <i class="fas fa-pen text-sm"></i>
+                                        <i class="fas fa-pen text-xs"></i>
                                     </a>
                                     <button
                                         type="button"
                                         title="Eliminar"
                                         wire:click="confirmarEliminarProducto({{ $producto->id }})"
-                                        class="ml-3 font-medium text-sm"
+                                        class="font-medium text-red-700"
                                     >
-                                        <i class="fas fa-trash text-sm"></i>
+                                        <i class="fas fa-trash text-xs"></i>
                                     </button>
                                     <button
                                         type="button"
                                         title="{{ $producto->activo ? 'Desactivar' : 'Activar'  }}"
                                         wire:click="confirmarCambiarStatusProducto({{ $producto->id }}, {{ $producto->activo }})"
-                                        class="ml-3 font-medium text-sm flex bg-gray-100 hover:bg-gray-200 rounded-md px-3 py-1.5"
+                                        class="font-medium"
                                     >
-                                        {{ $producto->activo ? 'Desactivar' : 'Activar'  }}
+{{--                                        {{ $producto->activo ? 'Desactivar' : 'Activar'  }}--}}
+                                        <i class="fas {{ $producto->activo ? 'fa-cancel text-red-700' : 'fa-check-circle text-green-600'  }} text-xs"></i>
                                     </button>
                                 </td>
                             </tr>
@@ -170,7 +172,10 @@
                                 <p class="text-xs font-medium uppercase text-gray-500">
                                     Imagen
                                 </p>
-                                <img x-show="producto.imagen" :src="'{{ asset('storage') }}/' + producto.imagen" alt="Imagen del producto" class="w-[200px] mb-2 rounded-lg border border-gray-300 px-3 py-2"/>
+                                <template x-if="producto.imagen">
+                                    <img :src="'{{ asset('storage') }}/' + producto.imagen" alt="Imagen del producto"
+                                         class="w-[200px] mb-2 rounded-lg border border-gray-300 px-3 py-2"/>
+                                </template>
                             </div>
                             <div>
                                 <p class="text-xs font-medium uppercase text-gray-500">

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
 
-            $table->integer('folio');
+            $table->string('folio', 25);
             $table->string('email', 255);
             $table->decimal('subtotal', 8, 2);
             $table->decimal('impuestos', 8, 2);

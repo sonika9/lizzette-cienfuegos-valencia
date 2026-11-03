@@ -1,5 +1,12 @@
 ## Catálogo de productos en línea con funcionalidad de carrito de compras y Panel de administración de productos, generación de reportes  y gráficas.
 
+### Secciones de la aplicación
+- Sección pública -> http://tienda.test/
+- Acceso Admin panel -> http://tienda.test/login   usuario: test@test.com   contraseña: 12345678
+- Sección Gráficas -> http://tienda.test/dashboard
+- Sección Productos -> http://tienda.test/productos
+- Sección Pedidos -> http://tienda.test/pedidos
+  
 ### Autenticación de usuarios
 - Para la autenticación de usuarios se utilizó Laravel Breeze, la cual incluye formularios de registro y login.
 - La sección del Panel de Administración esta protegida mediante el middleware auth proporcionado por Laravel, con el cual se verifica

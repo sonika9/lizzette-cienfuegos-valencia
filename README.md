@@ -34,10 +34,10 @@
 - php artisan migrate
 
 ### Ejecutar seeders
-- DatabaseSeeder - Contiene la creacion del usuario para el Admin Panel 
-- Credenciales para el Admin Panel: test@test.com:12345678
+- DatabaseSeeder - Contiene la creación del usuario para el Admin Panel
+- php artisan db:seed --class=DatabaseSeeder
 - ProductoSeeder - Agrega 2 productos de prueba
-- php artisan db:seed
+- php artisan db:seed --class=ProductoSeeder
 
 ### Redis
 Agregar variables de configuracion en el archivo .env

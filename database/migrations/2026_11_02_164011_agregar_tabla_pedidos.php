@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
-
             $table->string('folio', 25);
             $table->string('email', 255);
             $table->decimal('subtotal', 8, 2);

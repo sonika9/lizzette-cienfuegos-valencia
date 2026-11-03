@@ -1,57 +1,58 @@
 ## Requerimientos
 
-- ** PHP 8.3+
-- ** MySQL
-- ** Redis
+- PHP 8.3+
+- MySQL
+- Redis
 
 ## Instalación
 
 ### Descargar proyecto
 
-cd /var/www
-git clone https://github.com/sonika9/lizzette-cienfuegos-valencia.git
+- cd /var/www
+- git clone https://github.com/sonika9/lizzette-cienfuegos-valencia.git
 
-### Instalar dependencias
-composer install
-npm install
-npm run dev
+### Instalación de dependencias
+- composer install
 
-### Base de datos
-Crear base de datos en MySQL
-Agregar variables de configuracion en el archivo .env
+### Instalación y compilación de assets 
+- npm install
+- npm run dev
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=
-DB_USERNAME=
-DB_PASSWORD=
+### Configuración de Base de datos
+- Crear base de datos en MySQL.
+- Agregar variables de configuracion en el archivo .env
+
+- DB_CONNECTION=mysql
+- DB_HOST=127.0.0.1
+- DB_PORT=3306
+- DB_DATABASE=
+- DB_USERNAME=
+- DB_PASSWORD=
 
 ### Ejecutar las migraciones
-cd /var/www/proyecto_nombre
-php artisan migrate
+- cd /var/www/proyecto_nombre
+- php artisan migrate
 
 ### Ejecutar seeders
-- ** DatabaseSeeder - Contiene la creacion del usuario para el Admin Panel 
-- ** Credenciales para el Admin Panel: test@test.com:12345678
-- ** ProductoSeeder - Agrega 2 productos de prueba
-- ** php artisan db:seed
+- DatabaseSeeder - Contiene la creacion del usuario para el Admin Panel 
+- Credenciales para el Admin Panel: test@test.com:12345678
+- ProductoSeeder - Agrega 2 productos de prueba
+- php artisan db:seed
 
 ### Redis
 Agregar variables de configuracion en el archivo .env
 
-CACHE_STORE=redis
-CACHE_PREFIX=appdata_cache
-
-REDIS_CLIENT=phpredis
-REDIS_HOST=127.0.0.1
-REDIS_PASSWORD=null
-REDIS_PORT=6379
+- CACHE_STORE=redis
+- CACHE_PREFIX=appdata_cache
+- REDIS_CLIENT=phpredis
+- REDIS_HOST=127.0.0.1
+- REDIS_PASSWORD=null
+- REDIS_PORT=6379
 
 ### Configuración de VirtualHost
 Agregar VirtualHost en Apache:
-
-```<VirtualHost *:80>
+```
+<VirtualHost *:80>
 ServerName tienda.test
 DocumentRoot /var/www/proyecto_ecommerce/public
 
@@ -63,16 +64,23 @@ DocumentRoot /var/www/proyecto_ecommerce/public
 
     ErrorLog ${APACHE_LOG_DIR}/tienda_error.log
     CustomLog ${APACHE_LOG_DIR}/tienda_access.log combined
-</VirtualHost>```
-
+</VirtualHost>
+```
 Habilitar VirtualHost
-- ** sudo a2ensite tienda.conf
+- sudo a2ensite tienda.conf
 
 Asegurarse de tener habilidado mod_rewrite en Apache
-- ** sudo a2enmod rewrite
+- sudo a2enmod rewrite
 
 Recargar configuración de Apache
-- ** sudo systemctl reload apache2
+- sudo systemctl reload apache2
 
 Agregar a /etc/hosts
-- ** 127.0.0.1 tienda.test
+- 127.0.0.1 tienda.test
+
+### Probar el acceso a la aplicación
+- Sección pública -> http://tienda.test/
+- Acceso Admin panel -> http://tienda.test/login   usuario: test@test.com   contraseña: 12345678
+- Sección Gráficas -> http://tienda.test/dashboard
+- Sección Productos -> http://tienda.test/productos
+- Sección Pedidos -> http://tienda.test/pedidos

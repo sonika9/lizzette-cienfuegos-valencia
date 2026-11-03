@@ -1,6 +1,7 @@
 ## Requerimientos
 
 - PHP 8.3+
+- Apache
 - MySQL
 - Redis
 

@@ -14,10 +14,10 @@
 
 ### Consulta tipo de cambio
 Se creo una interface para el servicio web de tipo de cambio ITipoCambio y se creo la implementación
-ExchangeRateAPI, esta implementación se baso en el patron Adapter para tener flexibilidad a la hora de requerir
+ExchangeRateAPI, esta implementación se baso en el patrón Adapter para tener flexibilidad a la hora de requerir
 cambiar el servicio web. Cuando se realiza una consulta de tipo de cambio primero se verifica si existe en cache (Redis) con el fin
 de evitar consultar el servicio web, en caso contrario se consulta el servicio web y se guarda el tipo de cambio en cache para reutilizarlo en consultas posteriores,
-el tipo de cambio se guarda en cache con un tiempo de expiracion de 2 horas.
+el tipo de cambio se guarda en cache con un tiempo de expiración de 2 horas.
 
 - app/Servicios/ITipoCambio.php
 - app/Servicios/ExchangeRateAPI.php
@@ -27,8 +27,8 @@ La consulta de tipo de cambio se integro en el formulario de crear/editar produc
 Cuando el usuario introduce el precio en pesos mexicanos se realiza una consulta al servicio de tipo de cambio (ExchangeRateAPI/ITipoCambio) para obtener el tipo de cambio a dolares.
 
 ### Servicio Web para realizar pagos
-Para esta funcionalidad se creo un Servicio Mock el cual regresara una respuesta de exito. De igual manera se implemento el
-patron Adapter para mayor flexibilidad a la hora de implementar el servicio real.
+Para esta funcionalidad se creo un Servicio Mock el cual regresara una respuesta de éxito. De igual manera se implemento el
+patrón Adapter para mayor flexibilidad a la hora de implementar el servicio real.
 
 - app/Servicios/IServicioPago.php
 - app/Servicios/MockServicioPago.php
@@ -39,7 +39,7 @@ producto.
 - El carrito de compras es gestionado mediante Livewire, de igual manera se agrego el estado del carrito a la session esto con el fin de que si el usuario recarga la pagina no se pierda el contenido del carrito.
 
 ## Estructura de directorios
-Se creo en app/Livewire un directorio para los componentes de cada seccion:
+Se creo en app/Livewire un directorio para los componentes de cada sección:
 
 ```text
 app

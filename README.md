@@ -40,6 +40,11 @@
 - ProductoSeeder - Agrega 2 productos de prueba
 - php artisan db:seed --class=ProductoSeeder
 
+### Permisos en directorios
+- cd /var/www/proyecto_nombre
+- sudo chmod -R 775 storage bootstrap/cache
+- sudo chmod -R 775 storage/framework/views
+
 ### Redis
 Agregar variables de configuracion en el archivo .env
 

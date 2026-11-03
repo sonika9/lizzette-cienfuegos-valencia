@@ -145,7 +145,7 @@ class ListaProductos extends Component
                 'subtotal' => $this->subtotal,
                 'impuestos' => $this->iva,
                 'total' => $this->total,
-                'estatus' => 'pendiente',
+                'estatus' => 'pagado',
                 'fecha' => now()
             ]);
             $pedido->folio = 'PEDIDO_' . $pedido->id;

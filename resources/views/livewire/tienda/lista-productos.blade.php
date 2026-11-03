@@ -86,7 +86,7 @@
                                 wire:click="incrementarCantidadCarrito({{ $producto->id }})">
                                 +
                             </button>
-                            <i class="fas fa-trash ml-4 text-red-600"
+                            <i class="fas fa-trash ml-4 text-red-600 cursor-pointer"
                                wire:click="removerProductoDelCarrito({{ $producto->id }})"></i>
                         </div>
                     @else
@@ -137,7 +137,7 @@
                                     wire:click="incrementarCantidadCarrito({{ $producto['id'] }})">
                                     +
                                 </button>
-                                <i class="fas fa-trash ml-4 text-red-600"
+                                <i class="fas fa-trash ml-4 text-red-600 cursor-pointer"
                                    wire:click="removerProductoDelCarrito({{ $producto['id'] }})"></i>
                             </div>
                         </div>
@@ -183,13 +183,13 @@
     @elseif($tipoBloque == 'confirmacion')
         <div class="bg-slate-50 block p-6 border border-slate-200 shadow-sm w-full mt-5">
             <h5 class="mb-3 text-2xl font-semibold tracking-tight text-shadow-slate-900 leading-8">
-                Su pago fue realizado con éxito!
+                ¡Su pago fue realizado con éxito!
             </h5>
             <p class="text-shadow-slate-600 mb-6">
                 Se le enviara un correo con el detalle de su compra.
             </p>
             <a href="/"
-                    class="ml-5 mt-5 w-40 inline-flex justify-center text-white bg-blue-600 box-border border border-transparent hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 shadow-xs font-medium leading-5 rounded-lg text-sm px-4 py-2.5 focus:outline-none">
+                    class="ml-5 mt-5 w-100 inline-flex justify-center text-white bg-blue-600 box-border border border-transparent hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 shadow-xs font-medium leading-5 rounded-lg text-sm px-4 py-2.5 focus:outline-none">
                 Continuar comprando
             </a>
         </div>
@@ -239,7 +239,7 @@
                             wire:click="incrementarCantidadCarrito({{ $productoSeleccionado->id }})">
                             +
                         </button>
-                        <i class="fas fa-trash ml-4 text-red-600"
+                        <i class="fas fa-trash ml-4 text-red-600 cursor-pointer"
                            wire:click="removerProductoDelCarrito({{ $productoSeleccionado->id }})"></i>
                     </div>
                 @else
